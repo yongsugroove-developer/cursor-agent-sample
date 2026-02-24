@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SNS AI 뉴스 수집기</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>SNS AI 뉴스 수집기</h1>
+      <p class="subtitle">설정 저장 후 예약 발송이 동작합니다.</p>
+
+      <form id="settings-form">
+        <section>
+          <h2>수집 소스</h2>
+          <label><input type="checkbox" id="xEnabled" /> X(Twitter)</label>
+          <label><input type="checkbox" id="threadsEnabled" /> Threads</label>
+        </section>
+
+        <section>
+          <h2>요약</h2>
+          <label for="summaryModel">요약 모델</label>
+          <select id="summaryModel">
+            <option value="concise">Concise</option>
+            <option value="detailed">Detailed</option>
+            <option value="bullets">Bullets</option>
+          </select>
+        </section>
+
+        <section>
+          <h2>스케줄</h2>
+          <label for="scheduleTime">발송 시간</label>
+          <input id="scheduleTime" type="time" required />
+          <label for="timezone">타임존</label>
+          <input id="timezone" type="text" placeholder="Asia/Seoul" required />
+        </section>
+
+        <section>
+          <h2>수신자</h2>
+          <label for="recipients">이메일(쉼표 또는 줄바꿈 구분)</label>
+          <textarea id="recipients" rows="4"></textarea>
+        </section>
+
+        <section>
+          <h2>SMTP</h2>
+          <label for="smtpHost">Host</label>
+          <input id="smtpHost" type="text" required />
+          <label for="smtpPort">Port</label>
+          <input id="smtpPort" type="number" min="1" max="65535" required />
+          <label><input id="smtpSecure" type="checkbox" /> SMTPS(465) 사용</label>
+          <label for="smtpUser">User</label>
+          <input id="smtpUser" type="text" required />
+          <label for="smtpPass">Password</label>
+          <input id="smtpPass" type="password" />
+          <label for="smtpFrom">From</label>
+          <input id="smtpFrom" type="email" required />
+        </section>
+
+        <div class="actions">
+          <button type="submit">설정 저장</button>
+          <button type="button" id="runNow">지금 발송 테스트</button>
+        </div>
+      </form>
+
+      <p id="message" role="status"></p>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
