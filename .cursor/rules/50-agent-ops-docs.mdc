@@ -1,0 +1,21 @@
+---
+description: Operational documentation workflow for docs/agent-ops records and handoffs
+globs: docs/agent-ops/**/*
+alwaysApply: false
+---
+
+# Agent Ops Docs
+
+- Keep docs lightweight but truthful.
+- When scope, status, or risk changes, update the matching file:
+  - `requirements.md` for scope and acceptance criteria
+  - `plan.md` for task ownership and state
+  - `status-board.md` for the live summary
+  - `decision-log.md` for meaningful user decisions
+- Do not mark work fully done before explicit user approval.
+
+# Writing Style
+
+- Prefer short, direct operational wording.
+- Avoid filler, speculation, or fake certainty.
+- Record only decisions that affect execution, verification, security, or approval.

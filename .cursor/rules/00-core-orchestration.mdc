@@ -1,0 +1,29 @@
+---
+description: Core project workflow, approval, and verification rules for all tasks
+alwaysApply: true
+---
+
+# Core Orchestration
+
+- Use `AGENTS.md` as the high-level project briefing.
+- Use `docs/agent-ops/requirements.md`, `plan.md`, `status-board.md`, and `decision-log.md` as the operational record when work scope changes.
+- Keep changes small and traceable. Prefer targeted edits over broad refactors.
+- Before claiming completion for meaningful work, run the relevant verification commands from `AGENTS.md`.
+- If a task changes behavior, update the matching docs in `docs/agent-ops/`.
+
+# Approval and Boundaries
+
+- Do not mark approval-sensitive work as done without explicit user approval.
+- Ask before risky dependency additions, provider changes, schema changes, or destructive edits.
+- Never commit secrets, `.env`, plaintext credentials, or local machine artifacts.
+
+# Multi-Agent Pattern
+
+- Use specialized subagents for context-heavy workstreams.
+- Use FE and BE subagents in parallel when the work can be split safely.
+- Use the verifier subagent after implementation to challenge “done” claims.
+- Use the security subagent when touching SMTP, tokens, API credentials, or browser-visible settings.
+
+# Expected Final Reporting
+
+- Include changed files, verification run, residual risk, and next user action if any.

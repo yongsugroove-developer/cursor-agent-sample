@@ -1,0 +1,28 @@
+---
+description: Frontend rules for the static settings UI in public HTML, CSS, and JavaScript files
+globs: public/**/*
+alwaysApply: false
+---
+
+# Frontend Static UI
+
+- Keep the UI simple, fast, and directly connected to the existing API.
+- Prefer progressive enhancement over framework-like abstractions.
+- Preserve form fields for:
+  - source toggles
+  - summary model
+  - schedule time and timezone
+  - recipients
+  - SMTP settings
+- Never render or re-display plaintext secrets after save. Mask sensitive values.
+
+# UX Expectations
+
+- Show clear success and failure feedback for save and run-now actions.
+- Keep labels explicit and operationally clear.
+- Do not introduce complex client-side state libraries for this project shape.
+
+# Safety
+
+- Validate obvious client-side constraints, but keep server validation as the source of truth.
+- Do not trust browser input for secrets, scheduling, or email addresses without backend validation.

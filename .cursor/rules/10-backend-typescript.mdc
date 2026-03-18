@@ -1,0 +1,33 @@
+---
+description: Backend TypeScript rules for Express, persistence, scheduler, collectors, and mail flow
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+# Backend TypeScript
+
+- Keep runtime code in `src/` modular and single-purpose.
+- Prefer pure helper functions for formatting, parsing, and transformation logic.
+- Validate incoming API payloads before persistence or execution.
+- Return explicit error messages for invalid input; do not leak secrets or stack traces in responses.
+- Preserve masked-secret behavior for SMTP password fields.
+
+# API and Persistence
+
+- Keep API contracts stable unless the user explicitly approves contract changes.
+- When saving settings, treat secret fields specially:
+  - allow masked round-trips
+  - encrypt at rest
+  - do not return plaintext secrets
+- Fail safely when external API credentials are missing.
+
+# Scheduler and Delivery
+
+- Keep scheduled execution idempotent where practical.
+- Prefer predictable scheduling and clear logging around run outcomes.
+- Do not embed provider credentials or tokens in code.
+
+# Testing Expectations
+
+- Add or update unit tests for new backend logic.
+- Add or update integration tests when API behavior changes.

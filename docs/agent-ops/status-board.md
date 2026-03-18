@@ -10,6 +10,7 @@
 - [x] FE-01 설정 UI MVP 구현
 - [x] BE-01 수집/요약/스케줄/SMTP API MVP 구현
 - [x] QA-01 기본 자동 검증 완료 (build/lint/unit/integration)
+- [x] Cursor subagent runtime 보강 완료 (`AGENTS.md`, `.cursor/rules/`, `.cursor/agents/`)
 
 ## done (user approved only)
 - [x] 문서 운영 템플릿 이관 완료

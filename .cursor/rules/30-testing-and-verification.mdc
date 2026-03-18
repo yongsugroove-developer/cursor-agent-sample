@@ -1,0 +1,28 @@
+---
+description: Testing and verification rules for unit, integration, and completion checks
+globs: tests/**/*.ts
+alwaysApply: false
+---
+
+# Testing and Verification
+
+- Prefer focused tests that prove behavior, not implementation details.
+- For backend changes:
+  - add unit tests for logic-heavy helpers
+  - add integration tests for API routes and persistence behavior
+- For UI-related behavior:
+  - verify saved settings reload correctly
+  - verify masked secret behavior remains intact
+
+# Completion Standard
+
+- A task is not complete just because code exists.
+- Verify with relevant commands from `AGENTS.md`.
+- Report what was verified, what was not verified, and why.
+
+# Regression Guardrails
+
+- Keep existing acceptance criteria visible:
+  - collection works
+  - summary model persists and applies
+  - schedule and recipients drive digest sending
